@@ -22,6 +22,7 @@ namespace ContactsWebApp.Models
         /// Represents the Name for Natual person and the Company name for Legal person
         /// </summary>
         [Required]
+        [DisplayName("Name / Company Name")]
         public string MainName { get; set; }
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace ContactsWebApp.Models
         /// Represents the CPF for Natual person and the CNPJ for Legal person
         /// </summary>
         [Required]
+        [DisplayName("Document Number")]
         public string DocumentNumber { get; set; }
 
         /// <summary>
