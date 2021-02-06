@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ContactsWebApp.Data;
+using ContactsWebApp.Helper;
 using ContactsWebApp.Models;
 
 namespace ContactsWebApp.Controllers
@@ -51,6 +52,40 @@ namespace ContactsWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                #region Initialization
+                bool isValidDocumentNumber = false;
+                #endregion
+
+                #region Fields that must be null depending on Contact Type
+                switch (contacts.ContactType)
+                {
+                    case "Natural Person":
+                        contacts.TradeName = null;
+                        break;
+                    case "Legal Person":
+                        contacts.Birthday = null;
+                        contacts.Gender = null;
+                        break;
+                    default:
+                        //Error message: Not valid contact type
+                        break;
+                }
+                #endregion
+
+                #region Document Number (CPF/CNPJ) Validation
+                isValidDocumentNumber = ValidationHelper.DocumentNumber(contacts);
+                #endregion
+
+                #region Natural Person
+                //Natural person: Name, CPF, Birthday, Gender and Address (ZipCode, Country, State, City, Address line 1 and Address line 2).
+
+                #endregion
+
+                #region Legal Person
+                //Legal person: Company name, Trade name, CNPJ and Address (ZipCode, Country, State, City, Address line 1 and Address line 2).
+
+                #endregion
+
                 db.Contacts.Add(contacts);
                 db.SaveChanges();
                 return RedirectToAction("Index");

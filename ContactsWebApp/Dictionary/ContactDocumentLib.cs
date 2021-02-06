@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ContactsWebApp.Dictionary
 {
-    public class ContactRegexLib
+    public class ContactDocumentLib
     {
         /// <summary>
         /// Dictionary Interface
@@ -13,20 +13,20 @@ namespace ContactsWebApp.Dictionary
         public static IDictionary<string, string> Dictionary;
 
         /// <summary>
-        /// Get the Regex for the specified Document Type
+        /// Get the Document Type for the specified Contact Type
         /// 
-        /// Usage: ContactRegexLib.Dictionary[string regexName];
+        /// Usage: ContactDocumentLib.Dictionary[string contactType];
         /// 
         /// Dictionary parameters:
         /// string, int
         /// regexName, regex
         /// </summary>
-        static ContactRegexLib()
+        static ContactDocumentLib()
         {
             Dictionary = new Dictionary<string, string>()
             {
-                {"CPF", "(^\\d{3}\\x2E\\d{3}\\x2E\\d{3}\\x2D\\d{2}$)"},
-                {"CNPJ", "\\d{2}.?\\d{3}.?\\d{3}/?\\d{4}-?\\d{2}"}
+                {"Natural Person", "CPF"},
+                {"Legal Person", "CNPJ"}
             };
         }
     }
