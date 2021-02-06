@@ -17,7 +17,7 @@
 }
 
 window.onload = function () {
-    displayFrame($("input[name='ContactType']").val());
+    displayFrame($("input[name='ContactType']:checked").val());
 }
 
 $(document).ready(function () {    

@@ -50,42 +50,7 @@ namespace ContactsWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Address")] Contacts contacts)
         {
-            #region Initialization
-            bool isValidDocumentNumber = false;
-            #endregion
-
-            #region Fields that must be null depending on Contact Type
-            switch (contacts.ContactType.ToLower())
-            {
-                case "natural person":
-                    contacts.TradeName = null;
-                    break;
-                case "legal person":
-                    contacts.Birthday = null;
-                    contacts.Gender = null;
-                    break;
-                default:
-                    ModelState.AddModelError("ContactType", "The selected Contact Type is not valid.");
-                    break;
-            }
-            #endregion
-
-            #region Document Number (CPF/CNPJ) Validation
-            isValidDocumentNumber = ValidationHelper.DocumentNumber(contacts);
-            if(!isValidDocumentNumber)
-                ModelState.AddModelError("DocumentNumber","The document number provided for this Contact Type is not valid.");
-            #endregion
-
-            #region Natural Person
-            //Natural person: Name, CPF, Birthday, Gender and Address (ZipCode, Country, State, City, Address line 1 and Address line 2).
-
-            #endregion
-
-            #region Legal Person
-            //Legal person: Company name, Trade name, CNPJ and Address (ZipCode, Country, State, City, Address line 1 and Address line 2).
-
-            #endregion
-
+            ValidationHelper.ContactInformation(ModelState, contacts);
 
             if (ModelState.IsValid)
             {
@@ -119,6 +84,8 @@ namespace ContactsWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Address")] Contacts contacts)
         {
+            ValidationHelper.ContactInformation(ModelState, contacts);
+
             if (ModelState.IsValid)
             {
                 db.Entry(contacts).State = EntityState.Modified;

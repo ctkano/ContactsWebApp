@@ -20,7 +20,8 @@
     <div id="ContactType_Div" class="form-group">
         @Html.LabelFor(model => model.ContactType, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ContactType, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.RadioButtonFor(model => model.ContactType, "Natural person") Natural person
+            @Html.RadioButtonFor(model => model.ContactType, "Legal person") Legal person
             @Html.ValidationMessageFor(model => model.ContactType, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -60,7 +61,8 @@
     <div id="Gender_Div" class="form-group">
         @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.RadioButtonFor(model => model.Gender, "Male") Male
+            @Html.RadioButtonFor(model => model.Gender, "Female") Female
             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </div>
     </div>
