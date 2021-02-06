@@ -85,6 +85,20 @@ This page has two models:
 - Contry:
   - Used just for object in the project.
 
+## Solution's basics
+
+When loading the web application the user is redirected to the Main Page. In the Main Page the user can select the following:
+- Creating new contacts:
+  - This action can be done by clicking in the button of the section "Create a new contact"
+  - Or by clicking in the link "Create" on the top of the page.
+  - Or by accessing the contact's list page (see Listing contacts below) and clicking in the link "Create New"
+- Listing contacts:
+  - This action can be done by clicking in the button of the section "Check your contact's list" or by clicking in the link "List" on the top of the page
+- Visualizing a contact's detailed information:
+  - This action can be done by accessing the contact's list page (see Listing contacts above) and clicking in the link "Details" of one of the contacts listed
+- Deleting a contact
+  - This action can be done by accessing the contact's list page (see Listing contacts above) and clicking in the link "Delete" of one of the contacts listed
+
 ## Requirements
 
 The requirements are divided by for runtime and for development:
