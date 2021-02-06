@@ -1,30 +1,36 @@
-﻿function displayDiv(inputName)
+﻿function displayInformation(contactType)
 {
-    if (inputName === "Natural person")
-    {
-        $("#TradeName_Div").hide();
-        $("#Birthday_Div").show();
-        $("#Gender_Div").show();
+    if (contactType === undefined) {
+        contactType = $("#ContactTypeValue").first().text().replace("'", "").replace("\n            ", "").trim();
     }
-    else if (inputName === "Legal person")
+
+    if (contactType === "Natural person")
     {
-        $("#TradeName_Div").show();
-        $("#Birthday_Div").hide();
-        $("#Gender_Div").hide();
+        $(".TradeName_Info").hide();
+        $(".Birthday_Info").show();
+        $(".Gender_Info").show();
+    }
+    else if (contactType === "Legal person")
+    {
+        $(".TradeName_Info").show();
+        $(".Birthday_Info").hide();
+        $(".Gender_Info").hide();
     }
 }
 
-function changeLabel(inputName)
+function changeLabel(contactType)
 {
-    if (inputName === "Natural person")
-    {
-        $(".MainName").text("Name");
-        $(".DocumentNumber").text("CPF");
+    if (contactType === undefined) {
+        contactType = $("#ContactTypeValue").first().text().replace("'", "").replace("\n            ", "").trim();
     }
-    else if (inputName === "Legal person")
-    {
-        $(".MainName").text("Company Name");
-        $(".DocumentNumber").text("CNPJ");
+
+    if (contactType === "Natural person") {
+        $(".MainNameLabel").text("Name");
+        $(".DocumentNumberLabel").text("CPF");
+    }
+    else if (contactType === "Legal person") {
+        $(".MainNameLabel").text("Company Name");
+        $(".DocumentNumberLabel").text("CNPJ");
     }
 }
 
@@ -64,13 +70,13 @@ function cpfPatternMask(cpf) {
 }
 
 window.onload = function () {
-    displayDiv($("input[name='ContactType']:checked").val());
+    displayInformation($("input[name='ContactType']:checked").val());
     changeLabel($("input[name='ContactType']:checked").val());
 }
 
 $(document).ready(function () {    
     $("input[name='ContactType']").click(function () {
-        displayDiv($(this).val());
+        displayInformation($(this).val());
         changeLabel($(this).val());
     });
 });
