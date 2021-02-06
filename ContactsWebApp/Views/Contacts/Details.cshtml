@@ -1,0 +1,74 @@
+﻿@model ContactsWebApp.Models.Contacts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contacts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TradeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TradeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

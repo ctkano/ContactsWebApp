@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Contacts Form</h1>
+    <p class="lead">This is the place where you should organize your contact list</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Create a new contact</h2>
+        <p>
+            Keep your contacts organized, everytime you get a new contact register in your list.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Create", "Contacts")">Check this out &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Check your contact's list</h2>
+        <p>See all the contacts you have and have met before. Keep your contacts active and remember them.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Contacts")">Check this out &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>About this project</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="@Url.Action("About", "Home")">Check this out &raquo;</a></p>
+    </div>
+</div>
