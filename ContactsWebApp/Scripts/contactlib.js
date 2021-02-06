@@ -1,20 +1,30 @@
-﻿function displayFrame(inputName)
+﻿function displayDiv(inputName)
 {
     if (inputName === "Natural person")
     {
         $("#TradeName_Div").hide();
         $("#Birthday_Div").show();
         $("#Gender_Div").show();
-        $("label[for*='MainName']").text("Name");
-        $("label[for*='DocumentNumber']").text("CPF");
     }
     else if (inputName === "Legal person")
     {
         $("#TradeName_Div").show();
         $("#Birthday_Div").hide();
         $("#Gender_Div").hide();
-        $("label[for*='MainName']").text("Company Name");
-        $("label[for*='DocumentNumber']").text("CNPJ");
+    }
+}
+
+function changeLabel(inputName)
+{
+    if (inputName === "Natural person")
+    {
+        $(".MainName").text("Name");
+        $(".DocumentNumber").text("CPF");
+    }
+    else if (inputName === "Legal person")
+    {
+        $(".MainName").text("Company Name");
+        $(".DocumentNumber").text("CNPJ");
     }
 }
 
@@ -54,12 +64,14 @@ function cpfPatternMask(cpf) {
 }
 
 window.onload = function () {
-    displayFrame($("input[name='ContactType']:checked").val());
+    displayDiv($("input[name='ContactType']:checked").val());
+    changeLabel($("input[name='ContactType']:checked").val());
 }
 
 $(document).ready(function () {    
     $("input[name='ContactType']").click(function () {
-        displayFrame($(this).val());
+        displayDiv($(this).val());
+        changeLabel($(this).val());
     });
 });
 
