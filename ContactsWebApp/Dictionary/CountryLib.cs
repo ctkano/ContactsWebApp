@@ -25,6 +25,7 @@ namespace ContactsWebApp.Dictionary
         {
             Dictionary = new Dictionary<string, string>()
             {
+                {"", ""},
                 {"Afghanistan","AF"},
                 {"Albania","AL"},
                 {"Algeria","DZ"},
