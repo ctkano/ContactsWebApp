@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,6 +16,7 @@ namespace ContactsWebApp.Controllers
     public class ContactsController : Controller
     {
         private ContactsContext db = new ContactsContext();
+        private static List<Country> countries = new List<Country>();
 
         // GET: Contacts
         public ActionResult Index()
@@ -40,6 +42,14 @@ namespace ContactsWebApp.Controllers
         // GET: Contacts/Create
         public ActionResult Create()
         {
+            countries = LoadHelper.Countries();
+            ViewBag.country = from cL in countries
+                              select new SelectListItem 
+                              {
+                                  Text = cL.Name,
+                                  Value = cL.Name
+                              };
+
             return View();
         }
 
@@ -48,7 +58,7 @@ namespace ContactsWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Address")] Contacts contacts)
+        public ActionResult Create([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Country,State,City,ZipCode,AddressLine1,AddressLine2")] Contacts contacts)
         {
             ValidationHelper.ContactInformation(ModelState, contacts);
 
@@ -57,6 +67,15 @@ namespace ContactsWebApp.Controllers
                 db.Contacts.Add(contacts);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.country = from cL in countries
+                                  select new SelectListItem
+                                  {
+                                      Text = cL.Name,
+                                      Value = cL.Name
+                                  };
             }
 
             return View(contacts);
@@ -74,6 +93,15 @@ namespace ContactsWebApp.Controllers
             {
                 return HttpNotFound();
             }
+
+            countries = LoadHelper.Countries();
+            ViewBag.country = from cL in countries
+                              select new SelectListItem
+                              {
+                                  Text = cL.Name,
+                                  Value = cL.Name
+                              };
+
             return View(contacts);
         }
 
@@ -82,7 +110,7 @@ namespace ContactsWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Address")] Contacts contacts)
+        public ActionResult Edit([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Country,State,City,ZipCode,AddressLine1,AddressLine2")] Contacts contacts)
         {
             ValidationHelper.ContactInformation(ModelState, contacts);
 
@@ -92,6 +120,17 @@ namespace ContactsWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            else
+            {
+                countries = LoadHelper.Countries();
+                ViewBag.country = from cL in countries
+                                  select new SelectListItem
+                                  {
+                                      Text = cL.Name,
+                                      Value = cL.Name
+                                  };
+            }
+
             return View(contacts);
         }
 

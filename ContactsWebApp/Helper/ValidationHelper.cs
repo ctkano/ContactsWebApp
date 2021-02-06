@@ -26,7 +26,7 @@ namespace ContactsWebApp.Helper
                 case "legal person":
                     contacts.Birthday = null;
                     contacts.Gender = null;
-                    if (!IsValidContactName(contacts.TradeName))
+                    if (contacts.TradeName != null && !IsValidContactName(contacts.TradeName))
                         ModelState.AddModelError("TradeName", "The trade name provided is not valid.");
                     break;
                 default:
@@ -47,11 +47,25 @@ namespace ContactsWebApp.Helper
 
             #region Address Validation
             //Address (ZipCode, Country, State, City, Address line 1 and Address line 2)
-            #region Line 1
-
+            #region ZipCode
+            if (contacts.ZipCode != null && !IsValidZipCode(contacts.Country, contacts.ZipCode))
+                    ModelState.AddModelError("ZipCode", "The zip code is not valid for the selected country.");
             #endregion
-            #region Line 2
-
+            #region State
+            if (contacts.State != null && !IsValidContactName(contacts.State))
+                ModelState.AddModelError("State", "The state provided is not valid.");
+            #endregion
+            #region City
+            if (contacts.City != null && !IsValidContactName(contacts.City))
+                ModelState.AddModelError("City", "The city provided is not valid.");
+            #endregion
+            #region AddressLine1
+            if (contacts.AddressLine1 != null && !IsValidContactName(contacts.AddressLine1))
+                ModelState.AddModelError("AddressLine1", "The Address Line 1 provided information is not valid.");
+            #endregion
+            #region AddressLine2
+            if (contacts.AddressLine2 != null && !IsValidContactName(contacts.AddressLine2))
+                ModelState.AddModelError("AddressLine3", "The Address Line 1 provided information is not valid.");
             #endregion
             #endregion
         }
@@ -71,6 +85,15 @@ namespace ContactsWebApp.Helper
         {
             //Validation through regex, following the international name standard
             return Regex.IsMatch(name, ContactRegexLib.Dictionary["name"]);
+        }
+
+        private static bool IsValidZipCode(string countryName, string zipcode)
+        {
+            //Get the country abreviation
+            string countryAbreviation = CountryLib.Dictionary[countryName];
+
+            //Check if the zip code is valid for the country selected
+            return Regex.IsMatch(zipcode, PostalCodeRegexLib.Dictionary[countryAbreviation]);
         }
     }
 }

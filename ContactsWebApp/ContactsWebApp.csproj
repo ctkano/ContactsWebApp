@@ -131,9 +131,12 @@
     <Compile Include="Data\ContactsContext.cs" />
     <Compile Include="Dictionary\ContactDocumentLib.cs" />
     <Compile Include="Dictionary\ContactRegexLib.cs" />
+    <Compile Include="Dictionary\CountryLib.cs" />
+    <Compile Include="Dictionary\PostalCodeRegexLib.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\LoadHelper.cs" />
     <Compile Include="Helper\ValidationHelper.cs" />
     <Compile Include="Migrations\202102052158539_InitialCreate.cs" />
     <Compile Include="Migrations\202102052158539_InitialCreate.Designer.cs">
@@ -143,8 +146,13 @@
     <Compile Include="Migrations\202102061458296_202102061158_DataBase_Model_Update.Designer.cs">
       <DependentUpon>202102061458296_202102061158_DataBase_Model_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102061716365_202102061416_DataBase_Model_Update-Add_Address_Other_Fields.cs" />
+    <Compile Include="Migrations\202102061716365_202102061416_DataBase_Model_Update-Add_Address_Other_Fields.Designer.cs">
+      <DependentUpon>202102061716365_202102061416_DataBase_Model_Update-Add_Address_Other_Fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contacts.cs" />
+    <Compile Include="Models\Country.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102061458296_202102061158_DataBase_Model_Update.resx">
       <DependentUpon>202102061458296_202102061158_DataBase_Model_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102061716365_202102061416_DataBase_Model_Update-Add_Address_Other_Fields.resx">
+      <DependentUpon>202102061716365_202102061416_DataBase_Model_Update-Add_Address_Other_Fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

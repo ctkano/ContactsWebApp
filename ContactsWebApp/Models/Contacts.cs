@@ -50,6 +50,27 @@ namespace ContactsWebApp.Models
         public string Gender { get; set; }
 
         /// <summary>
+        /// Represents the country of the contact
+        /// </summary>
+        public string Country { get; set; }
+
+        /// <summary>
+        /// Represents the contact's address zip code
+        /// </summary>
+        [DisplayName("Zip Code")]
+        public string ZipCode { get; set; }
+
+        /// <summary>
+        /// Represents the contact's state
+        /// </summary>
+        public string State { get; set; }
+
+        /// <summary>
+        /// Represents the contact's city
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
         /// Represents the address first line of the contact
         /// </summary>
         [DisplayName("Address Line 1")]

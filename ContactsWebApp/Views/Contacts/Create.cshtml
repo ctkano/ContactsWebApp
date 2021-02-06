@@ -18,9 +18,11 @@
     <div id="ContactType_Div" class="form-group">
         @Html.LabelFor(model => model.ContactType, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.ContactType, "Natural person", new { Checked = "checked" }) Natural person
-            @Html.RadioButtonFor(model => model.ContactType, "Legal person") Legal person
-            @Html.ValidationMessageFor(model => model.ContactType, "", new { @class = "text-danger" })
+            <div class="form-check-inline">
+                @Html.RadioButtonFor(model => model.ContactType, "Natural person", new { Checked = "checked", @class = "form-check-input" }) Natural person   
+                @Html.RadioButtonFor(model => model.ContactType, "Legal person", new { htmlAttributes = new { @class = "form-check-input" } }) Legal person
+            </div>
+            @Html.ValidationMessageFor(model => model.ContactType, "", new { @class = "text-danger" })                
         </div>
     </div>
 
@@ -59,13 +61,47 @@
     <div id="Gender_Div" class="form-group">
         @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.Gender, "Male") Male
-            @Html.RadioButtonFor(model => model.Gender, "Female") Female
+            <div class="form-check-inline">
+                @Html.RadioButtonFor(model => model.Gender, "Male", new { htmlAttributes = new { @class = "form-check-input" } }) Male   
+                @Html.RadioButtonFor(model => model.Gender, "Female", new { htmlAttributes = new { @class = "form-check-input" } }) Female
+            </div>
             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    <div id="AddressLine1" class="form-group">
+    <div id="Country_Div" class="form-group">
+        @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Country, ViewBag.country as SelectList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div id="State_Div" class="form-group">
+        @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div id="City_Div" class="form-group">
+        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div id="ZipCode_Div" class="form-group">
+        @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div id="AddressLine1_Div" class="form-group">
         @Html.LabelFor(model => model.AddressLine1, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.AddressLine1, new { htmlAttributes = new { @class = "form-control" } })
