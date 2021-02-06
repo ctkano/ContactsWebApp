@@ -25,8 +25,8 @@ namespace ContactsWebApp.Dictionary
         {
             Dictionary = new Dictionary<string, string>()
             {
-                {"Natural Person", "CPF"},
-                {"Legal Person", "CNPJ"}
+                {"natural person", "cpf"},
+                {"legal person", "cnpj"}
             };
         }
     }

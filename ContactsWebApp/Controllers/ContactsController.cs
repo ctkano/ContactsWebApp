@@ -57,12 +57,12 @@ namespace ContactsWebApp.Controllers
                 #endregion
 
                 #region Fields that must be null depending on Contact Type
-                switch (contacts.ContactType)
+                switch (contacts.ContactType.ToLower())
                 {
-                    case "Natural Person":
+                    case "natural person":
                         contacts.TradeName = null;
                         break;
-                    case "Legal Person":
+                    case "legal person":
                         contacts.Birthday = null;
                         contacts.Gender = null;
                         break;
@@ -86,9 +86,12 @@ namespace ContactsWebApp.Controllers
 
                 #endregion
 
-                db.Contacts.Add(contacts);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (isValidDocumentNumber)
+                {
+                    db.Contacts.Add(contacts);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }                
             }
 
             return View(contacts);

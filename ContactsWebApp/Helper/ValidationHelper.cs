@@ -23,7 +23,7 @@ namespace ContactsWebApp.Helper
             #endregion
 
             #region Validation
-            regex = ContactRegexLib.Dictionary[ContactDocumentLib.Dictionary[contacts.ContactType]];
+            regex = ContactRegexLib.Dictionary[ContactDocumentLib.Dictionary[contacts.ContactType.ToLower()]];
             isValidDocumentNumber = Regex.IsMatch(contacts.DocumentNumber, regex);
             #endregion
 
