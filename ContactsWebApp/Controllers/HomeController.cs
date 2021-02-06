@@ -15,7 +15,7 @@ namespace ContactsWebApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = $@"This is a web application for registration, listing, visualization and deletion of Contacts";
+            ViewBag.Message = $@"This is the place where you should organize your contact list, in this web application you can register, list, view and delete contacts.";
 
             return View();
         }
