@@ -102,7 +102,7 @@ namespace ContactsWebApp.Tests.Helper
             GetReturnValidationZipCode getReturnValidationZipCode = null;
 
             string countryName = null;
-            string zipcode = "00000";
+            string zipcode = "00000-000";
 
             getReturnValidationZipCode = new GetReturnValidationZipCode(validationHelper.ValidateZipCode);
             Assert.IsFalse(getReturnValidationZipCode(countryName, zipcode));
@@ -151,8 +151,8 @@ namespace ContactsWebApp.Tests.Helper
             ContactsWebApp.Helper.ValidationHelper validationHelper = new ContactsWebApp.Helper.ValidationHelper();
             GetReturnValidationZipCode getReturnValidationZipCode = null;
 
-            string countryName = "Brazil";
-            string zipcode = "";
+            string countryName = "";
+            string zipcode = "00000-000";
 
             getReturnValidationZipCode = new GetReturnValidationZipCode(validationHelper.ValidateZipCode);
             Assert.IsFalse(getReturnValidationZipCode(countryName, zipcode));
@@ -183,7 +183,7 @@ namespace ContactsWebApp.Tests.Helper
             ContactsWebApp.Helper.ValidationHelper validationHelper = new ContactsWebApp.Helper.ValidationHelper();
             GetReturnValidationZipCode getReturnValidationZipCode = null;
 
-            string countryName = "Brazil";
+            string countryName = "";
             string zipcode = "";
 
             getReturnValidationZipCode = new GetReturnValidationZipCode(validationHelper.ValidateZipCode);
