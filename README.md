@@ -32,7 +32,7 @@ For the development, the following premises were taken into account:
   - Is registered into the Birthday field of the Contact's Model;
   - The field appears and is registered in the DB only when the contact type is "Natural person";
   - The date format is defined by: dd/MM/yyyy.
- - Gender:
+- Gender:
   - Option field and should be Male or Female or Other;
   - Is registered into the Gender field of the Contact's Model;
   - The field appears and is registered in the DB only when the contact type is "Natural person".
