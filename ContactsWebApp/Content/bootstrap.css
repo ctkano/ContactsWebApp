@@ -6630,6 +6630,9 @@ button.close {
 .visible-lg {
   display: none !important;
 }
+.mr-3 {
+    margin-right: 5%;
+}
 .visible-xs-block,
 .visible-xs-inline,
 .visible-xs-inline-block,
