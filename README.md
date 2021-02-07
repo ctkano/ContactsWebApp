@@ -21,7 +21,7 @@ For the development, the following premises were taken into account:
   - Is registered into the TradeName field of the Contact's Model;
   - Validation by regex can be found in the Postal Code Regex Library (Dictionary/ContactRegexLib.cs);
   - The field appears and is registered in the DB only when the contact type is "Legal person".
- - Document Number:
+- Document Number:
   - Required tield that represents the number of CPF or CNPJ;
   - It is validated according with its type (CPF or CNPJ), based on the contaty type selected (maped document type in: Dictionary/ContactDocumentLib.cs) and their specific patterns (999.999.999-99 for CPF and 99.999.999/9991-99 for CNPJ);
   - Validation by regex can be found in the Contact Regex Library (Dictionary/ContactRegexLib.cs);
