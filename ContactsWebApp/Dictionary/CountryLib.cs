@@ -8,14 +8,13 @@ namespace ContactsWebApp.Dictionary
     public class CountryLib
     {
         /// <summary>
-        /// Dictionary Interface
+        /// Interface of the library of all contries and its abreviation
+        /// Usage: CountryLib.Dictionary[string CountryName];
         /// </summary>
         public static IDictionary<string, string> Dictionary;
 
         /// <summary>
         /// Library of all contries and its abreviation
-        /// 
-        /// Usage: CountryLib.Dictionary[string CountryName];
         /// 
         /// Dictionary parameters:
         /// string, string

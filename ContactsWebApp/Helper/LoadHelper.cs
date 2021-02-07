@@ -9,11 +9,16 @@ namespace ContactsWebApp.Helper
 {
     public class LoadHelper
     {
+        /// <summary>
+        /// Load available countries from the Country's Library
+        /// </summary>
+        /// <returns>List of Countries ordered by country's name</returns>
         public static List<Country> Countries()
         {
             List<Country> countriesList = new List<Country>();
 
-            foreach(KeyValuePair<string, string> countryLibReg in CountryLib.Dictionary.OrderBy(c => c.Key))
+            //Get countries from Country's Library ordered by country's name
+            foreach (KeyValuePair<string, string> countryLibReg in CountryLib.Dictionary.OrderBy(c => c.Key))
             {
                 Country country = new Country 
                 { 

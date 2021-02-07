@@ -8,14 +8,13 @@ namespace ContactsWebApp.Dictionary
     public class ContactDocumentLib
     {
         /// <summary>
-        /// Dictionary Interface
+        /// Interface to get the Document Type for the specified Contact Type
+        /// Usage: ContactDocumentLib.Dictionary[string contactType];
         /// </summary>
         public static IDictionary<string, string> Dictionary;
 
         /// <summary>
-        /// Get the Document Type for the specified Contact Type
-        /// 
-        /// Usage: ContactDocumentLib.Dictionary[string contactType];
+        /// Document Type for the specified Contact Type
         /// 
         /// Dictionary parameters:
         /// string, int

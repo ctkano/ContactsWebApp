@@ -9,6 +9,9 @@ namespace ContactsWebApp.Models
 {
     public class Contacts
     {
+        /// <summary>
+        /// Contact Id
+        /// </summary>
         public int Id { get; set; }
 
         /// <summary>

@@ -8,14 +8,13 @@ namespace ContactsWebApp.Dictionary
     public class ContactRegexLib
     {
         /// <summary>
-        /// Dictionary Interface
+        /// Interface to get the Regex for the specified Regex Key Word
+        /// Usage: ContactRegexLib.Dictionary[string regexKeyWord];
         /// </summary>
         public static IDictionary<string, string> Dictionary;
 
         /// <summary>
-        /// Get the Regex for the specified Regex Key Word
-        /// 
-        /// Usage: ContactRegexLib.Dictionary[string regexKeyWord];
+        /// Regex list for the specified Regex Key Word
         /// 
         /// Dictionary parameters:
         /// string, int

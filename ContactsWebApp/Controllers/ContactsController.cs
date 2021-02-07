@@ -42,6 +42,7 @@ namespace ContactsWebApp.Controllers
         // GET: Contacts/Create
         public ActionResult Create()
         {
+            #region Load country list for drop down list
             countries = LoadHelper.Countries();
             ViewBag.country = from cL in countries
                               select new SelectListItem 
@@ -49,6 +50,7 @@ namespace ContactsWebApp.Controllers
                                   Text = cL.Name,
                                   Value = cL.Name
                               };
+            #endregion
 
             return View();
         }
@@ -60,6 +62,7 @@ namespace ContactsWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Country,State,City,ZipCode,AddressLine1,AddressLine2")] Contacts contacts)
         {
+            //Validates the information provided for the new Contact
             ValidationHelper.ContactInformation(ModelState, contacts);
 
             if (ModelState.IsValid)
@@ -70,12 +73,14 @@ namespace ContactsWebApp.Controllers
             }
             else
             {
+                #region Reload country list for drop down list
                 ViewBag.country = from cL in countries
                                   select new SelectListItem
                                   {
                                       Text = cL.Name,
                                       Value = cL.Name
                                   };
+                #endregion
             }
 
             return View(contacts);
@@ -94,6 +99,7 @@ namespace ContactsWebApp.Controllers
                 return HttpNotFound();
             }
 
+            #region Load country list for drop down list
             countries = LoadHelper.Countries();
             ViewBag.country = from cL in countries
                               select new SelectListItem
@@ -101,6 +107,7 @@ namespace ContactsWebApp.Controllers
                                   Text = cL.Name,
                                   Value = cL.Name
                               };
+            #endregion
 
             return View(contacts);
         }
@@ -112,6 +119,7 @@ namespace ContactsWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,ContactType,MainName,TradeName,DocumentNumber,Birthday,Gender,Country,State,City,ZipCode,AddressLine1,AddressLine2")] Contacts contacts)
         {
+            //Validates the information provided for an exiting Contact
             ValidationHelper.ContactInformation(ModelState, contacts);
 
             if (ModelState.IsValid)
@@ -122,6 +130,7 @@ namespace ContactsWebApp.Controllers
             }
             else
             {
+                #region Reload country list for drop down list
                 countries = LoadHelper.Countries();
                 ViewBag.country = from cL in countries
                                   select new SelectListItem
@@ -129,6 +138,7 @@ namespace ContactsWebApp.Controllers
                                       Text = cL.Name,
                                       Value = cL.Name
                                   };
+                #endregion
             }
 
             return View(contacts);
@@ -160,6 +170,10 @@ namespace ContactsWebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Dispose DB
+        /// </summary>
+        /// <param name="disposing">Indicates to dispose or not</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

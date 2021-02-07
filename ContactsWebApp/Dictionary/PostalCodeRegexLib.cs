@@ -8,14 +8,13 @@ namespace ContactsWebApp.Dictionary
     public class PostalCodeRegexLib
     {
         /// <summary>
-        /// Dictionary Interface
+        /// Interface to get the Regex for the specified Country Abreviation
+        /// Usage: postalCodeRegexLib.Dictionary[string CountryAbreviation];
         /// </summary>
         public static IDictionary<string, string> Dictionary;
 
         /// <summary>
-        /// Get the Regex for the specified Country Abreviation
-        /// 
-        /// Usage: postalCodeRegexLib.Dictionary[string CountryAbreviation];
+        /// Regex list for the specified Country Abreviation
         /// 
         /// Dictionary parameters:
         /// string, int
