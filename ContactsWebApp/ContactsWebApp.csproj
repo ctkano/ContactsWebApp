@@ -132,7 +132,7 @@
     <Compile Include="Dictionary\ContactDocumentLib.cs" />
     <Compile Include="Dictionary\ContactRegexLib.cs" />
     <Compile Include="Dictionary\CountryLib.cs" />
-    <Compile Include="Dictionary\PostalCodeRegexLib.cs" />
+    <Compile Include="Dictionary\ZipCodeRegexLib.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,7 +233,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
-	<ItemGroup>
+    <ItemGroup>
       <RoslynFiles Include="$(CscToolPath)\*" />
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />

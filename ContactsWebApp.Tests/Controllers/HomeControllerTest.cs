@@ -35,7 +35,7 @@ namespace ContactsWebApp.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("This is a web application for registration, listing, visualization and deletion of Contacts", result.ViewBag.Message);
+            Assert.AreEqual("This is the place where you should organize your contact list, in this web application you can register, list, view and delete contacts.", result.ViewBag.Message);
         }
     }
 }

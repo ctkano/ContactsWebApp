@@ -89,6 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\ValidationHelper_ZipCode_Test.cs" />
+    <Compile Include="Helper\ValidationHelper_Name_Test.cs" />
+    <Compile Include="Helper\ValidationHelper_DocumentNumber_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
