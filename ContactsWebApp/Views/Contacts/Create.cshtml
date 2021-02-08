@@ -17,10 +17,8 @@
     <div class="form-group ContactType_Info">
         @Html.LabelFor(model => model.ContactType, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <div class="form-check-inline">
-                <span class="mr-3">@Html.RadioButtonFor(model => model.ContactType, "Natural person", new { Checked = "checked", @class = "form-check-input" }) Natural person</span>
-                <span class="mr-3">@Html.RadioButtonFor(model => model.ContactType, "Legal person", new { htmlAttributes = new { @class = "form-check-input" } }) Legal person</span>
-            </div>
+            <label class="radio-inline">@Html.RadioButtonFor(model => model.ContactType, "Natural person", new { Checked = "checked" }) Natural person</label>
+            <label class="radio-inline">@Html.RadioButtonFor(model => model.ContactType, "Legal person") Legal person</label>
             @Html.ValidationMessageFor(model => model.ContactType, "", new { @class = "text-danger" })                
         </div>
     </div>
@@ -60,11 +58,9 @@
     <div class="form-group Gender_Info">
         @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <div class="form-check-inline">
-                <span class="mr-3">@Html.RadioButtonFor(model => model.Gender, "Male", new { htmlAttributes = new { @class = "form-check-input" } }) Male</span>
-                <span class="mr-3">@Html.RadioButtonFor(model => model.Gender, "Female", new { htmlAttributes = new { @class = "form-check-input" } }) Female</span>
-                <span class="mr-3">@Html.RadioButtonFor(model => model.Gender, "Other", new { htmlAttributes = new { @class = "form-check-input" } }) Other</span>
-            </div>
+            <label class="radio-inline">@Html.RadioButtonFor(model => model.Gender, "Male") Male</label>
+            <label class="radio-inline">@Html.RadioButtonFor(model => model.Gender, "Female") Female</label>
+            <label class="radio-inline">@Html.RadioButtonFor(model => model.Gender, "Other") Other</label>
             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </div>
     </div>
